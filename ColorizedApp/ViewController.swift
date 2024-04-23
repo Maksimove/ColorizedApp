@@ -15,9 +15,9 @@ final class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        valueOfRedSlider.text = "0.05"
-        valueOfGreenSlider.text = "0.27"
-        valueOfBlueSlider.text = "0.49"
+        valueOfRedSlider.text = String(format: "%.2f", redComponent.value)
+        valueOfGreenSlider.text = String(format: "%.2f", greenComponent.value)
+        valueOfBlueSlider.text = String(format: "%.2f", blueComponent.value)
         
         colorView.layer.cornerRadius = 15
         colorChange()
