@@ -41,7 +41,7 @@ final class SettingsViewController: UIViewController {
         colorChangeFromSlider()
         createToolBarForTextField()
     }
-    
+    // MARK: - Hiding the keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
@@ -74,13 +74,14 @@ extension SettingsViewController: UITextFieldDelegate {
             showAlert(textField)
             return
         }
+        
         if textField == redColorTF {
-            colorChangeFromTF()
-            valueOfRedSlider.text = textField.text
             redComponent.setValue(
                 Float(textField.text ?? "") ?? 0,
                 animated: true
             )
+            colorChangeFromTF()
+            valueOfRedSlider.text = textField.text
         } else if textField == greenColorTF {
             colorChangeFromTF()
             valueOfGreenSlider.text = textField.text
@@ -165,7 +166,7 @@ private extension SettingsViewController {
             preferredStyle: .alert
         )
         let alertButton = UIAlertAction(title: "Ok", style: .default) { _ in
-            textfield.text
+            textfield.text?.removeLast()
         }
 
         alert.addAction(alertButton)
