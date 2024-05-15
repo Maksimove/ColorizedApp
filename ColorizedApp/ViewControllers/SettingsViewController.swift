@@ -110,7 +110,7 @@ private extension SettingsViewController {
     }
     
     func getColorsForSliders() {
-        if let components = backgroundColor.cgColor.components{
+        if let components = backgroundColor.cgColor.components {
             redComponent.setValue(Float(components[0]), animated: false)
             greenComponent.setValue(Float(components[1]), animated: false)
             blueComponent.setValue(Float(components[2]), animated: false)
